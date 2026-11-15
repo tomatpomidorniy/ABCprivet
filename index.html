@@ -3,77 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoPremium - Автосалон</title>
+    <title>AEGIS | Система безопасности</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Меню (как на твоем скриншоте) -->
+    <!-- Эффект сетки на фоне -->
+    <div class="grid-bg"></div>
+
+    <!-- Навигация -->
     <nav class="navbar">
-        <div class="logo">AUTO<span>PREMIUM</span></div>
+        <div class="logo">
+            <span class="icon">⬡</span> AEGIS<span class="blink">_</span>
+        </div>
         <ul class="nav-links">
-            <li><a href="#">Главная</a></li>
-            <li><a href="#catalog">Каталог</a></li>
-            <li><a href="#">Услуги</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li><a href="#system">Система</a></li>
+            <li><a href="#modules">Модули</a></li>
+            <li><a href="#contact" class="btn-nav">Доступ</a></li>
         </ul>
     </nav>
 
-    <!-- Главный экран с наложением картинок -->
+    <!-- Главный экран -->
     <header class="hero">
-        <div class="hero-text">
-            <h1>Проще, чем <br>вы думаете.</h1>
-            <p>Покупайте автомобили мечты с выгодой. Мы берем на себя все заботы: от подбора до оформления.</p>
+        <div class="hero-content">
+            <div class="badge">СИСТЕМА АКТИВИРОВАНА</div>
+            <h1>Защита нового <br><span class="gradient-text">поколения</span></h1>
+            <p>Автономный комплекс кибербезопасности для критической инфраструктуры. Шифрование военного уровня. Искусственный интеллект на страже периметра.</p>
             <div class="hero-buttons">
-                <a href="#catalog" class="btn-main">Смотреть каталог</a>
-                <a href="#" class="btn-secondary">Связаться с нами</a>
+                <a href="#modules" class="btn-primary">Инициализация</a>
+                <a href="#" class="btn-outline" id="demoBtn">Тест системы</a>
             </div>
         </div>
         
-        <!-- Блок с картинками, которые "вылезают" -->
-        <div class="hero-images">
-            <img class="main-img" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=800&auto=format&fit=crop" alt="Машина">
-            <!-- Маленькая картинка поверх большой -->
-            <img class="small-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=400&auto=format&fit=crop" alt="Детали">
+        <div class="hero-visual">
+            <div class="radar">
+                <div class="radar-circle"></div>
+                <div class="radar-circle"></div>
+                <div class="radar-circle"></div>
+                <div class="radar-sweep"></div>
+                <div class="radar-dot"></div>
+            </div>
+            <div class="data-stream">
+                <span>SECURE_NODE: 192.168.1.1 ... OK</span>
+                <span>ENCRYPTION: AES-256 ... ACTIVE</span>
+                <span>FIREWALL: INVISIBLE ... ON</span>
+                <span>THREAT_LEVEL: ZERO</span>
+            </div>
         </div>
     </header>
 
-    <!-- Каталог -->
-    <main class="catalog" id="catalog">
-        <h2 class="section-title">Наши автомобили</h2>
+    <!-- Модули (Карточки) -->
+    <section class="modules" id="modules">
+        <div class="section-header">
+            <h2>Архитектура</h2>
+            <p>Модульная система, готовая к любым угрозам</p>
+        </div>
 
-        <div class="cars-grid">
-            <!-- МАШИНА 1 -->
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=600&auto=format&fit=crop" alt="BMW M4">
-                <div class="card-content">
-                    <h3>BMW M4</h3>
-                    <p class="price">5 000 000 ₽</p>
-                    <button>Купить</button>
-                </div>
+        <div class="module-grid">
+            <!-- Модуль 1 -->
+            <div class="module-card">
+                <div class="card-icon">🛡️</div>
+                <h3>Периметр</h3>
+                <p>Активная защита от DDoS-атак и несанкционированного доступа.</p>
+                <div class="status">СТАТУС: <span class="green">ONLINE</span></div>
             </div>
 
-            <!-- МАШИНА 2 -->
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop" alt="Porsche 911">
-                <div class="card-content">
-                    <h3>Porsche 911</h3>
-                    <p class="price">12 500 000 ₽</p>
-                    <button>Купить</button>
-                </div>
+            <!-- Модуль 2 -->
+            <div class="module-card">
+                <div class="card-icon">🧠</div>
+                <h3>Нейроядро</h3>
+                <p>ИИ анализирует трафик в реальном времени и предсказывает атаки.</p>
+                <div class="status">СТАТУС: <span class="green">ONLINE</span></div>
             </div>
 
-            <!-- МАШИНА 3 -->
-            <div class="car-card">
-                <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=600&auto=format&fit=crop" alt="Mercedes G-Class">
-                <div class="card-content">
-                    <h3>Mercedes G-Class</h3>
-                    <p class="price">18 000 000 ₽</p>
-                    <button>Купить</button>
-                </div>
+            <!-- Модуль 3 -->
+            <div class="module-card">
+                <div class="card-icon">🔐</div>
+                <h3>Крипто-модуль</h3>
+                <p>Квантово-устойчивое шифрование всех передаваемых данных.</p>
+                <div class="status">СТАТУС: <span class="green">ONLINE</span></div>
             </div>
         </div>
-    </main>
+    </section>
+
+    <!-- Модальное окно (Терминал) -->
+    <div id="terminalModal" class="modal">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span>root@aegis-core:~#</span>
+                <button id="closeModal">✕</button>
+            </div>
+            <div class="terminal-body" id="terminalOutput">
+                <p>> Запуск диагностики...</p>
+                <p>> Проверка узлов... <span class="green">[OK]</span></p>
+                <p>> Обход брандмауэра... <span class="green">[BYPASSED]</span></p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
