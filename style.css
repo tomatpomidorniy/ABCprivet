@@ -1,34 +1,40 @@
-/* --- ОБЩИЕ НАСТРОЙКИ --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
+/* Глубокий темный фон с легким синим отливом */
 body {
-    font-family: 'Montserrat', sans-serif; /* Красивый современный шрифт */
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: #0a0a0a;
+    background-image: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #0a0a0a 50%);
+    color: white;
+    overflow-x: hidden; /* Запрещаем горизонтальный скролл */
 }
 
-/* --- НАВИГАЦИЯ --- */
+/* --- МЕНЮ --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background-color: #111;
-    color: white;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px); /* Эффект матового стекла */
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .logo {
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 800;
     letter-spacing: 2px;
-    color: #e63946;
+}
+
+.logo span {
+    color: #007bff; /* Синий акцент */
 }
 
 .nav-links {
@@ -39,128 +45,197 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: white;
+    color: #aaa;
     font-weight: 500;
     transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #e63946;
+    color: white;
 }
 
-/* --- ГЛАВНЫЙ БАННЕР --- */
+/* --- ГЛАВНЫЙ ЭКРАН (HERO) --- */
 .hero {
-    height: 60vh; /* Высота баннера */
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop') center/cover;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
+    justify-content: space-between;
+    min-height: 80vh;
+    padding: 0 10%;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 64px; /* Огромный шрифт как на скрине */
+    line-height: 1.1;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Делаем часть текста полупрозрачным (как на твоем скрине) */
+.hero h1 span {
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 18px;
+    color: #888;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
 }
 
 .btn-main {
-    display: inline-block;
-    padding: 15px 40px;
-    background-color: #e63946;
+    padding: 15px 30px;
+    background-color: #007bff;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s, transform 0.3s;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
 .btn-main:hover {
-    background-color: #c1121f;
-    transform: scale(1.05);
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    padding: 15px 30px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* --- 3D КАРТИНКИ --- */
+.hero-images {
+    flex: 1;
+    position: relative;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Главная большая картинка */
+.main-img {
+    width: 90%;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    position: absolute;
+    right: -20px;
+    top: 50px;
+    z-index: 1;
+}
+
+/* Маленькая картинка поверх */
+.small-img {
+    width: 40%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    position: absolute;
+    left: -20px;
+    bottom: 20px;
+    z-index: 2;
+    border: 2px solid #222; /* Рамка для контраста */
 }
 
 /* --- КАТАЛОГ --- */
 .catalog {
-    padding: 80px 50px;
-    max-width: 1400px;
-    margin: 0 auto;
+    padding: 100px 10%;
 }
 
 .section-title {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 50px;
+    font-size: 40px;
+    margin-bottom: 60px;
 }
 
 .cars-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
 }
 
-/* --- КАРТОЧКА МАШИНЫ --- */
+/* Карточки (темные, с размытием) */
 .car-card {
-    background: white;
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.03); /* Очень легкий белый фон */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .car-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: #007bff; /* Подсветка синим при наведении */
 }
 
 .car-card img {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.car-card:hover img {
-    transform: scale(1.05); /* Картинка немного увеличивается при наведении */
 }
 
 .card-content {
-    padding: 20px;
-    text-align: center;
+    padding: 30px;
 }
 
 .card-content h3 {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 .price {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
-    color: #e63946;
+    color: #007bff;
     margin-bottom: 20px;
 }
 
 .car-card button {
     width: 100%;
-    padding: 12px;
-    background-color: #111;
+    padding: 15px;
+    background-color: #222;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 .car-card button:hover {
-    background-color: #e63946;
+    background-color: #007bff;
+}
+
+/* Для мобильных телефонов */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 50px;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .hero-images {
+        display: none; /* На телефонах прячем наложение картинок, чтобы не ломалось */
+    }
 }
