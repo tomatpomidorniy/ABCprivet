@@ -107,10 +107,10 @@ body {
     box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
 }
 
-/* --- КАТАЛОГ --- */
+/* --- КАТАЛОГ (СДЕЛАЛИ ШИРЕ) --- */
 .catalog {
     padding: 80px 5%;
-    max-width: 1400px;
+    max-width: 100%; /* Убрали ограничение 1400px, теперь на всю ширину */
     margin: 0 auto;
     flex: 1;
 }
@@ -126,18 +126,17 @@ body {
 /* --- СПИСОК МАШИН (В СТОЛБИК) --- */
 .cars-list {
     display: flex;
-    flex-direction: column; /* Выстраиваем в столбик */
-    gap: 50px; /* Большой отступ между карточками */
-    align-items: center; /* Центрируем карточки */
+    flex-direction: column;
+    gap: 60px; /* Большой отступ между широкими карточками */
+    width: 100%;
 }
 
-/* --- КАРТОЧКА МАШИНЫ (ЛЮКС) --- */
+/* --- КАРТОЧКА МАШИНЫ (ШИРОКАЯ) --- */
 .car-card {
     background: #1a1a1a;
     border-radius: 20px;
     overflow: hidden;
-    width: 100%; /* На всю ширину */
-    max-width: 900px; /* Ограничиваем максимальную ширину, чтобы не было слишком широко на больших экранах */
+    width: 100%; /* На всю ширину контейнера */
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -149,45 +148,45 @@ body {
     border-color: #e63946;
 }
 
-/* Картинка: высокая, но не растянутая */
+/* Картинка: высокая, не растянутая */
 .car-card img {
     width: 100%;
-    height: 450px; /* Высота картинки */
-    object-fit: cover; /* Это свойство не дает картинке сплющиваться, она обрезается по краям */
+    height: 500px; /* Сделал еще выше для люкса */
+    object-fit: cover;
     transition: transform 0.5s;
 }
 
 .car-card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03); /* Легкий зум, чтобы не сильно вылезало за края */
 }
 
 .card-content {
-    padding: 40px;
+    padding: 50px;
     text-align: center;
 }
 
 .card-content h3 {
-    font-size: 32px; /* Крупный шрифт для люкса */
-    margin-bottom: 15px;
+    font-size: 36px; /* Огромный шрифт */
+    margin-bottom: 20px;
     letter-spacing: 1px;
 }
 
 .price {
-    font-size: 28px;
+    font-size: 32px; /* Огромная цена */
     font-weight: bold;
     color: #e63946;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .car-card button {
     width: 100%;
-    max-width: 300px; /* Кнопка не на всю ширину, так красивее */
-    padding: 18px;
+    max-width: 400px; /* Кнопка шире */
+    padding: 20px;
     background-color: #2a2a2a;
     color: white;
     border: none;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     transition: background 0.3s;
     text-transform: uppercase;
