@@ -2,11 +2,47 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Мой первый сайт</title>
+    <title>Автосалон "Премьер"</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #f0f0f0; text-align: center; font-family: Arial;">
-    <h1 style="color: #333;">Привет! Это мой сайт!</h1>
-    <p>Я сделал его сам через GitHub.</p>
-    <button style="padding: 10px 20px; background-color: blue; color: white; border: none; border-radius: 5px;">Нажми на меня</button>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <h1>Автосалон "Премьер"</h1>
+        <p>Лучшие машины по лучшим ценам</p>
+    </header>
+
+    <!-- Каталог машин -->
+    <main class="catalog">
+        
+        <!-- МАШИНА 1 -->
+        <div class="car-card">
+            <!-- Картинка: вставь ссылку на картинку в src="..." -->
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=600&auto=format&fit=crop" alt="Машина 1">
+            <h2>BMW M4</h2>
+            <p class="price">5 000 000 ₽</p> <!-- Вот тут меняй цену -->
+            <button>Купить</button>
+        </div>
+
+        <!-- МАШИНА 2 -->
+        <div class="car-card">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=600&auto=format&fit=crop" alt="Машина 2">
+            <h2>Porsche 911</h2>
+            <p class="price">12 500 000 ₽</p> <!-- Вот тут меняй цену -->
+            <button>Купить</button>
+        </div>
+
+        <!-- МАШИНА 3 -->
+        <div class="car-card">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=600&auto=format&fit=crop" alt="Машина 3">
+            <h2>Mercedes G-Class</h2>
+            <p class="price">18 000 000 ₽</p> <!-- Вот тут меняй цену -->
+            <button>Купить</button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
