@@ -57,7 +57,7 @@ body {
     color: #e63946;
 }
 
-/* --- ГЛАВНЫЙ ЭКРАН (БАННЕР) --- */
+/* --- ГЛАВНЫЙ ЭКРАН --- */
 .hero {
     height: 80vh;
     display: flex;
@@ -107,36 +107,36 @@ body {
     box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
 }
 
-/* --- КАТАЛОГ (СДЕЛАЛИ ШИРЕ) --- */
+/* --- КАТАЛОГ (ШИРОКИЙ) --- */
 .catalog {
-    padding: 80px 5%;
-    max-width: 100%; /* Убрали ограничение 1400px, теперь на всю ширину */
+    padding: 40px 2%; /* Маленькие отступы по краям, чтобы карточки были шире */
+    max-width: 100%;
     margin: 0 auto;
     flex: 1;
 }
 
 .section-title {
     text-align: center;
-    font-size: 36px;
+    font-size: 48px;
     margin-bottom: 60px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
-/* --- СПИСОК МАШИН (В СТОЛБИК) --- */
+/* --- СПИСОК МАШИН В СТОЛБИК --- */
 .cars-list {
     display: flex;
     flex-direction: column;
-    gap: 60px; /* Большой отступ между широкими карточками */
+    gap: 60px;
     width: 100%;
 }
 
-/* --- КАРТОЧКА МАШИНЫ (ШИРОКАЯ) --- */
+/* --- КАРТОЧКА (ОГРОМНАЯ) --- */
 .car-card {
     background: #1a1a1a;
     border-radius: 20px;
     overflow: hidden;
-    width: 100%; /* На всю ширину контейнера */
+    width: 100%;
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -148,31 +148,30 @@ body {
     border-color: #e63946;
 }
 
-/* Картинка: высокая, не растянутая */
 .car-card img {
     width: 100%;
-    height: 500px; /* Сделал еще выше для люкса */
-    object-fit: cover;
+    height: 600px; /* Огромная высота картинки */
+    object-fit: cover; /* Не дает картинке сплющиться */
     transition: transform 0.5s;
 }
 
 .car-card:hover img {
-    transform: scale(1.03); /* Легкий зум, чтобы не сильно вылезало за края */
+    transform: scale(1.03);
 }
 
 .card-content {
-    padding: 50px;
+    padding: 60px;
     text-align: center;
 }
 
 .card-content h3 {
-    font-size: 36px; /* Огромный шрифт */
+    font-size: 48px;
     margin-bottom: 20px;
     letter-spacing: 1px;
 }
 
 .price {
-    font-size: 32px; /* Огромная цена */
+    font-size: 40px;
     font-weight: bold;
     color: #e63946;
     margin-bottom: 40px;
@@ -180,13 +179,13 @@ body {
 
 .car-card button {
     width: 100%;
-    max-width: 400px; /* Кнопка шире */
-    padding: 20px;
+    max-width: 500px;
+    padding: 25px;
     background-color: #2a2a2a;
     color: white;
     border: none;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     transition: background 0.3s;
     text-transform: uppercase;
@@ -247,7 +246,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* --- ПОДВАЛ (ДИСКЛЕЙМЕР) --- */
+/* --- ПОДВАЛ --- */
 footer {
     text-align: center;
     padding: 40px 20px;
