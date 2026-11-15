@@ -1,66 +1,69 @@
-// 1. Управление терминалом (Модалкой)
-const modal = document.getElementById('terminalModal');
-const demoBtn = document.getElementById('demoBtn');
+const modal = document.getElementById('carModal');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalPrice = document.getElementById('modalPrice');
 const closeModal = document.getElementById('closeModal');
-const terminalOutput = document.getElementById('terminalOutput');
+const carCards = document.querySelectorAll('.car-card');
 
-demoBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.style.display = 'flex';
-    terminalOutput.innerHTML = '<p>> Запуск теста безопасности...</p>';
-    startHackingSequence();
+// Открытие окна при клике на карточку
+carCards.forEach(card => {
+    card.addEventListener('click', function(event) {
+        if(event.target.tagName === 'BUTTON') return;
+
+        const imgSrc = this.querySelector('img').src;
+        const title = this.querySelector('h3').innerText;
+        const price = this.querySelector('.price').innerText;
+
+        modalImg.src = imgSrc;
+        modalTitle.innerText = title;
+        modalPrice.innerText = price;
+
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
 });
 
-closeModal.addEventListener('click', () => {
+// Закрытие окна
+closeModal.onclick = function() {
     modal.style.display = 'none';
-});
-
-// 2. Имитация взлома (вывод текста построчно)
-function startHackingSequence() {
-    const messages = [
-        "> Подключение к ядру AEGIS...",
-        "> Обход системы защиты... [OK]",
-        "> Анализ трафика...",
-        "> Поиск уязвимостей... [0 НАЙДЕНО]",
-        "> Тест шифрования AES-256... [УСПЕШНО]",
-        "> Запуск ИИ-сканера...",
-        "> СИСТЕМА ПОЛНОСТЬЮ ЗАЩИЩЕНА.",
-        "> СЕАНС ЗАВЕРШЕН."
-    ];
-
-    let i = 0;
-    const interval = setInterval(() => {
-        if (i < messages.length) {
-            const p = document.createElement('p');
-            p.innerText = messages[i];
-            terminalOutput.appendChild(p);
-            terminalOutput.scrollTop = terminalOutput.scrollHeight; // Автоскролл вниз
-            i++;
-        } else {
-            clearInterval(interval);
-        }
-    }, 600); // Задержка между строками
+    document.body.style.overflow = 'auto';
 }
 
-// 3. 3D-эффект для радара при движении мыши
-document.addEventListener('mousemove', (e) => {
-    const radar = document.querySelector('.radar');
-    if(!radar) return;
-    
-    // Вычисляем положение мыши относительно центра экрана
-    const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-    const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-    
-    radar.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Кнопки "Купить" на карточках
+const buyButtons = document.querySelectorAll('.car-card button');
+buyButtons.forEach(btn => {
+    btn.addEventListener('click', function(event) {
+        event.stopPropagation(); 
+        const carName = this.parentElement.querySelector('h3').innerText;
+        this.innerText = 'Оформляем...';
+        this.style.backgroundColor = '#28a745';
+        
+        setTimeout(() => {
+            alert('Заявка на ' + carName + ' успешно отправлена!');
+            this.innerText = 'Купить';
+            this.style.backgroundColor = ''; 
+        }, 1000);
+    });
 });
 
-// 4. Плавный скролл для якорных ссылок
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
+// Кнопка "Оформить заявку" внутри модалки
+document.getElementById('buyModalBtn').addEventListener('click', function() {
+    const carName = modalTitle.innerText;
+    this.innerText = 'Отправка...';
+    this.style.backgroundColor = '#28a745';
+
+    setTimeout(() => {
+        alert('Вы оформили заявку на ' + carName + '!');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        this.innerText = 'Оформить заявку';
+        this.style.backgroundColor = '';
+    }, 1000);
 });
