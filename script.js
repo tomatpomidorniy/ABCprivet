@@ -36,7 +36,7 @@ window.onclick = function(event) {
     }
 }
 
-// Обработка кнопок "Купить"
+// Кнопки "Купить"
 const buyButtons = document.querySelectorAll('.car-card button');
 buyButtons.forEach(btn => {
     btn.addEventListener('click', function(event) {
@@ -53,7 +53,7 @@ buyButtons.forEach(btn => {
     });
 });
 
-// Обработка кнопки внутри модалки
+// Кнопка в модалке
 document.getElementById('buyModalBtn').addEventListener('click', function() {
     const carName = modalTitle.innerText;
     this.innerText = 'Отправка...';
